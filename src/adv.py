@@ -68,7 +68,7 @@ direction_adj_phrase = {
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Player()
+player = Player(room['outside'])
 
 # Write a loop that:
 #
@@ -84,7 +84,7 @@ player = Player()
 while True:
 
     # get player's current room and print its description
-    current_room = room[player.get_location()]
+    current_room = player.get_location()
     current_room.describe()
     
     # prompt for user input
@@ -103,8 +103,7 @@ while True:
 
         if next_room:
             # move user to new room
-            
-
+            player.move_to_location(next_room)
             print("You move " + direction_abbreviations[user_input] + ".")
         else:
             print("There is no exit " + direction_adj_phrase[user_input] + " from here.")

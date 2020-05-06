@@ -103,5 +103,15 @@ while True:
         elif (verb == 'drop'):
             player.drop_item(direct_object)
 
+        # describe item
+        if (verb in ['x', 'examine']):
+            
+            item = player.get_item_by_name(direct_object) or player.current_room.get_item_by_name(direct_object)
+
+            if item:
+                print(item.get_description())
+            else:
+                print("there is no " + direct_object + " here.")
+                
     # print an extra line at the end to separate actions
     print("")

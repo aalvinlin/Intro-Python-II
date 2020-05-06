@@ -12,6 +12,7 @@ class Item:
 
     def on_take(self):
         print("You picked up the " + self.name + ".")
+        print("  " + self.description + "\n")
 
     def on_drop(self):
         print("You dropped your " + self.name + ".")

@@ -111,7 +111,7 @@ while True:
             if item:
                 print(item.get_description())
             else:
-                print("there is no " + direct_object + " here.")
-                
+                print("There is no " + direct_object + " here.")
+
     # print an extra line at the end to separate actions
     print("")

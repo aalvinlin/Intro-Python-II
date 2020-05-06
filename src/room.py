@@ -83,5 +83,5 @@ class Room:
         light_sources = [item for item in self.items if isinstance(item, LightSource)]
 
         # return true if naturally lit or light source found
-        return self.is_light or len(light_sources) > 1
+        return self.is_light or len(light_sources) > 0
 

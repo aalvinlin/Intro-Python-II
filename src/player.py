@@ -103,4 +103,4 @@ class Player:
         light_sources = [item for item in self.inventory if isinstance(item, LightSource)]
 
         # return true if light source found
-        return len(light_sources) > 1
+        return len(light_sources) > 0

@@ -1,5 +1,5 @@
 from room import Room
-from item import Item
+from item import Item, LightSource
 
 # Declare all the rooms
 
@@ -35,7 +35,7 @@ room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
 # add items to rooms
-room['foyer'].add_item(Item("lantern", "It looks worn, but works well."))
+room['foyer'].add_item(LightSource("lantern", "It looks worn, but works well."))
 room['foyer'].add_item(Item("paint-can", "A gallon can of seagreen paint that has been half used."))
 room['foyer'].add_item(Item("sword", "It's purely ornamental."))
 room['foyer'].add_item(Item("gloves", "The previous owner must have used these when working outside."))

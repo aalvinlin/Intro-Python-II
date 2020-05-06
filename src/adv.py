@@ -1,7 +1,5 @@
 from data import room
-from room import Room
 from player import Player
-from item import Item
 
 #
 # Main

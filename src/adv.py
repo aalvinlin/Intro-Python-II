@@ -1,10 +1,11 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons."),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -49,6 +50,8 @@ show_instructions()
 
 # Make a new player object that is currently in the 'outside' room.
 
+player = Player()
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -62,7 +65,10 @@ show_instructions()
 
 while True:
 
-    user_input = input("\nWhat do you want to do?\n").lower()
+    # get player's current room and print its description
+    room[player.get_location()].describe()
+    
+    user_input = input("> ").lower()
 
     if (user_input == 'q'):
         break
@@ -93,3 +99,6 @@ while True:
     elif (user_input == 'd'):
         print("You descend.")
         pass
+
+    # print an extra line at the end to separate actions
+    print("")

@@ -16,24 +16,24 @@ class Room:
         self.name = name
         self.description = description
     
-    def n_to():
+    def n_to(self):
         return exits['n']
     
-    def s_to():
+    def s_to(self):
         return exits['s']
     
-    def e_to():
+    def e_to(self):
         return exits['e']
     
-    def w_to():
+    def w_to(self):
         return exits['w']
     
-    def u_to():
+    def u_to(self):
         return exits['u']
     
-    def d_to():
+    def d_to(self):
         return exits['d']
     
-    def describe():
+    def describe(self):
         print(self.name)
-        print(self.description)
+        print("  " + self.description)

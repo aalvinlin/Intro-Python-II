@@ -3,16 +3,22 @@
 
 class Player:
 
-    self.inventory = []
+    inventory = []
 
     def __init__(self):
         self.room = 'outside'
-    
-    def drop_item(item):
+
+    def get_location(self):
+        return self.room
+
+    def move_to_location(self, new_location):
+        self.room = new_location
+
+    def drop_item(self, item):
 
         # remove item if it exists
         if self.inventory.index(item) >= 0:
             self.inventory.remove(item)
         
-        else
+        else:
             print("You don't have this in your inventory!")

@@ -1,4 +1,5 @@
 from room import Room
+from item import Item
 
 # Declare all the rooms
 
@@ -32,3 +33,9 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+
+# add items to rooms
+room['foyer'].add_item(Item("brass lantern", "It looks worn, but works well."))
+room['foyer'].add_item(Item("paint can", "A gallon can of seagreen paint that has been half used."))
+room['foyer'].add_item(Item("sword replica", "It's purely ornamental."))
+room['foyer'].add_item(Item("leather gloves", "The previous owner must have used these when working outside."))

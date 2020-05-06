@@ -40,15 +40,30 @@ class Room:
             item_names = [item.get_name() for item in self.items]
             print(", ".join(item_names))
 
+    # return the Item object with the specified name if it exists
+    def get_item_by_name(self, name):
+        requested_item = [item for item in self.items if item.get_name() == name]
+
+        if len(requested_item) == 1:
+            return requested_item
+        else:
+            return None
+
+    # add an Item object to the room
     def add_item(self, item):
         self.items.append(item)
 
+    # remove a requested Item object from the room
     def remove_item(self, item):
 
         # remove item if it exists
-        if self.items.index(item) >= 0:
+        if self._item_exists(item):
             self.items.remove(item)
-        
+    
+    # get a list of all Item objects in the room
+    def return_items_in_room(self):
+        return self.items
+
     def describe(self):
         print(self.name)
         print("  " + self.description)

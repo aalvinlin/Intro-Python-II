@@ -3,11 +3,10 @@
 
 class Player:
 
-    inventory = []
-
     def __init__(self, starting_room, name):
         self.current_room = starting_room
         self.name = name
+        self.inventory = []
 
     def get_location(self):
         return self.current_room
@@ -15,11 +14,37 @@ class Player:
     def move_to_location(self, next_room):
         self.current_room = next_room
 
-    def drop_item(self, item):
+    # return the Item object with the specified name if it exists
+    def get_item_by_name(self, name):
+        requested_item = [item for item in self.inventory if item.get_name() == name]
 
-        # remove item if it exists
-        if self.inventory.index(item) >= 0:
-            self.inventory.remove(item)
-        
+        if len(requested_item) == 1:
+            return requested_item
         else:
-            print("You don't have this in your inventory!")
+            return None
+
+    def get_item(self, item_name):
+
+        # check for existence of item in room
+        requested_item = self.current_room.get_item_by_name(item_name)
+
+        # add item to inventory if it exists
+        # then remove item from the room
+        if requested_item:
+            self.items.append(requested_item)
+            self.current_room.remove_item(requested_item)
+        else:
+            print("There is no " + item_name + " here.")
+
+    def drop_item(self, item_name):
+
+        # check for existence of item in inventory
+        requested_item = self.get_item_by_name(item_name)
+
+        # remove item from inventory if it exists
+        # then add it to the room
+        if requested_item:
+            self.inventory.remove(item)
+            self.current_room.add_item(requested_item)
+        else:
+            print("You don't have " + item_name + " in your inventory!")

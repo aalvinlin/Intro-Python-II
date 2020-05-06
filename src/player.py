@@ -11,8 +11,12 @@ class Player:
     def get_location(self):
         return self.room
 
-    def move_to_location(self, new_location):
-        self.room = new_location
+    def move_to_location(self, new_room):
+
+        pass
+        # if new_room.get_next_room(direction)
+
+        # self.room = new_room
 
     def drop_item(self, item):
 

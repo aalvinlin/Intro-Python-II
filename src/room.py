@@ -11,10 +11,23 @@ class Room:
     u_to = None
     d_to = None
 
+    # directions
+    directions = {
+        "n": n_to,
+        "s": s_to,
+        "e": e_to,
+        "w": w_to,
+        "u": u_to,
+        "d": d_to
+    }
+
     def __init__(self, name, description):
         self.name = name
         self.description = description
-        
+    
+    def get_next_room(self, direction):
+        return directions[direction]
+
     def describe(self):
         print(self.name)
         print("  " + self.description)

@@ -48,6 +48,15 @@ def show_instructions():
 print("Welcome to Adventure Game #1")
 show_instructions()
 
+direction_abbreviations = {
+    "n": "north",
+    "s": "south",
+    "e": "east",
+    "w": "west",
+    "u": "up",
+    "d": "down"
+}
+
 # Make a new player object that is currently in the 'outside' room.
 
 player = Player()
@@ -68,6 +77,7 @@ while True:
     # get player's current room and print its description
     room[player.get_location()].describe()
     
+    # prompt for user input
     user_input = input("> ").lower()
 
     if (user_input == 'q'):
@@ -76,28 +86,8 @@ while True:
     elif (user_input == 'i'):
         show_instructions()
 
-    elif (user_input == 'n'):
-        print("You move north.")
-        pass
-    
-    elif (user_input == 's'):
-        print("You move south.")
-        pass
-    
-    elif (user_input == 'e'):
-        print("You move east.")
-        pass
-    
-    elif (user_input == 'w'):
-        print("You move west.")
-        pass
-
-    elif (user_input == 'u'):
-        print("You go up.")
-        pass
-
-    elif (user_input == 'd'):
-        print("You descend.")
+    elif (user_input in direction_abbreviations):
+        print("You move " + direction_abbreviations[user_input] + ".")
         pass
 
     # print an extra line at the end to separate actions

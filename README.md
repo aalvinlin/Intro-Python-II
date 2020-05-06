@@ -18,9 +18,9 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 
 ### Day 1 MVP
 
-* Create the REPL command parser in `adv.py` which allows the player to move to rooms
+* ✅ Create the REPL command parser in `adv.py` which allows the player to move to rooms
   in the four cardinal directions.
-* Fill out Player and Room classes in `player.py` and `room.py`
+* ✅ Fill out Player and Room classes in `player.py` and `room.py`
 
 ### Day 2 MVP
 
@@ -50,13 +50,13 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   * ✅ Players should have a `name` and `current_room` attributes
 
 
-* Create a file called `item.py` and add an `Item` class in there.
+* ✅ Create a file called `item.py` and add an `Item` class in there.
 
-  * The item should have `name` and `description` attributes.
+  * ✅ The item should have `name` and `description` attributes.
 
-     * Hint: the name should be one word for ease in parsing later.
+     * ✅ Hint: the name should be one word for ease in parsing later.
 
-  * This will be the _base class_ for specialized item types to be declared
+  * ✅ This will be the _base class_ for specialized item types to be declared
     later.
 
 * Add the ability to add items to rooms.

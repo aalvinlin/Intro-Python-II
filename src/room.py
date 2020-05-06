@@ -33,10 +33,13 @@ class Room:
             return self.d_to
 
     def print_items(self):
-        print("On the ground, you see the following:")
 
-        item_names = [item.get_name() for item in self.items]
-        print(item_names.join(", "))
+        if len(self.items) > 0:
+
+            print("On the ground, you see the following:")
+
+            item_names = [item.get_name() for item in self.items]
+            print(item_names.join(", "))
 
     def describe(self):
         print(self.name)

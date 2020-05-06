@@ -31,6 +31,11 @@ class Player:
             items_in_room = self.current_room.return_items_in_room()
 
             if len(items_in_room) > 0:
+
+                # print message saying you picked up everything
+                for item in items_in_room:
+                    item.on_take()
+
                 self.inventory.extend(items_in_room)
                 self.current_room.items = []
             else:
@@ -58,6 +63,11 @@ class Player:
         if item_name == "all":
 
             if len(self.inventory) > 0:
+
+                # print message saying you dropped everything
+                for item in self.inventory:
+                    item.on_drop()
+
                 self.current_room.items.extend(self.inventory)
                 self.inventory = []
             else:

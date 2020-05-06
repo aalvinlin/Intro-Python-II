@@ -11,6 +11,8 @@ class Room:
     u_to = None
     d_to = None
 
+    items = []
+
     def __init__(self, name, description):
         self.name = name
         self.description = description
@@ -30,7 +32,14 @@ class Room:
         elif direction == "d":
             return self.d_to
 
+    def print_items(self):
+        print("On the ground, you see the following:")
+
+        item_names = [item.get_name() for item in self.items]
+        print(item_names.join(", "))
+
     def describe(self):
         print(self.name)
         print("  " + self.description)
+        self.print_items()        
 

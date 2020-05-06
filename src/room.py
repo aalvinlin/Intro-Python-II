@@ -26,7 +26,7 @@ class Room:
         self.description = description
     
     def get_next_room(self, direction):
-        return directions[direction]
+        return self.directions[direction]
 
     def describe(self):
         print(self.name)

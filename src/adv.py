@@ -57,6 +57,15 @@ direction_abbreviations = {
     "d": "down"
 }
 
+direction_adj_phrase = {
+    "n": "to the north",
+    "s": "to the south",
+    "e": "to the east",
+    "w": "to the west",
+    "u": "above",
+    "d": "below"
+}
+
 # Make a new player object that is currently in the 'outside' room.
 
 player = Player()
@@ -75,7 +84,8 @@ player = Player()
 while True:
 
     # get player's current room and print its description
-    room[player.get_location()].describe()
+    current_room = room[player.get_location()]
+    current_room.describe()
     
     # prompt for user input
     user_input = input("> ").lower()
@@ -87,8 +97,13 @@ while True:
         show_instructions()
 
     elif (user_input in direction_abbreviations):
-        print("You move " + direction_abbreviations[user_input] + ".")
-        pass
+
+        # check if current room has an exit in the requested direction
+        if current_room.get_next_room(user_input):
+            # move user to new room
+            print("You move " + direction_abbreviations[user_input] + ".")
+        else:
+            print("There is no exit " + direction_adj_phrase[user_input] + " from here.")
 
     # print an extra line at the end to separate actions
     print("")

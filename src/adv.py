@@ -99,8 +99,12 @@ while True:
     elif (user_input in direction_abbreviations):
 
         # check if current room has an exit in the requested direction
-        if current_room.get_next_room(user_input):
+        next_room = current_room.get_next_room(user_input)
+
+        if next_room:
             # move user to new room
+            
+
             print("You move " + direction_abbreviations[user_input] + ".")
         else:
             print("There is no exit " + direction_adj_phrase[user_input] + " from here.")

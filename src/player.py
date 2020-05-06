@@ -39,7 +39,7 @@ class Player:
                 self.inventory.extend(items_in_room)
                 self.current_room.items = []
             else:
-                print("There is nothing left to take here.")
+                print("There is nothing to take here.")
         
         # add an individual item
         else:

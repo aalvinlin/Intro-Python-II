@@ -48,3 +48,14 @@ class Player:
             self.current_room.add_item(requested_item)
         else:
             print("You don't have " + item_name + " in your inventory!")
+
+    def show_inventory(self):
+
+        if len(self.inventory) > 0:
+
+            print("You are currently carrying the following:")
+
+            item_names = [item.get_name() for item in self.inventory]
+            print(", ".join(item_names))
+        else:
+            print("You don't have a penny to your name.")

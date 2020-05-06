@@ -12,7 +12,8 @@ def show_instructions():
     print("To quit, type 'q'.")
     print("To pick up an item, type 'get (item name)' or 'take (item name)'.")
     print("To drop an item, type 'drop (item name).")
-    print("To view these instructions again, type 'i'.")
+    print("To view your inventory, type 'i'.")
+    print("To view these instructions again, type 'h'.")
 
 print("Welcome to Adventure Game #1")
 show_instructions()
@@ -62,8 +63,11 @@ while True:
     if (user_input == 'q'):
         break
 
-    elif (user_input == 'i'):
+    elif (user_input == 'h'):
         show_instructions()
+
+    elif (user_input in ['i' , 'inventory']):
+        player.show_inventory()
 
     elif (user_input in direction_abbreviations):
 

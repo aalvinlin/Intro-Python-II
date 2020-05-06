@@ -37,6 +37,16 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
+def show_instructions():
+    print("To move, type 'n', 's', 'e', or 'w'.")
+    print("To quit, type 'q'.")
+    print("To pick up an item, type 'get (item name)' or 'take (item name)'.")
+    print("To drop an item, type 'drop (item name).")
+    print("To view these instructions again, type 'i.")
+
+print("Welcome to Adventure Game #1")
+show_instructions()
+
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
@@ -49,3 +59,37 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+
+    user_input = input("What do you want to do?").lower()
+
+    if (user_input == 'q'):
+        break
+
+    elif (user_input == 'i'):
+        show_instructions()
+
+    elif (user_input == 'n'):
+        print("You move north.")
+        pass
+    
+    elif (user_input == 's'):
+        print("You move south.")
+        pass
+    
+    elif (user_input == 'e'):
+        print("You move east.")
+        pass
+    
+    elif (user_input == 'w'):
+        print("You move west.")
+        pass
+
+    elif (user_input == 'u'):
+        print("You go up.")
+        pass
+
+    elif (user_input == 'd'):
+        print("You descend.")
+        pass

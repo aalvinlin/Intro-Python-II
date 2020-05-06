@@ -9,3 +9,9 @@ class Item:
 
     def get_description(self):
         return self.description
+
+    def on_take(self):
+        print("You picked up the " + self.name + ".")
+
+    def on_drop(self):
+        print("You dropped your " + self.name + ".")

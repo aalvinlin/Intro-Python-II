@@ -46,6 +46,9 @@ class Player:
             if requested_item:
                 self.inventory.append(requested_item)
                 self.current_room.remove_item(requested_item)
+
+                # display take message
+                requested_item.on_take()
             else:
                 print("There is no " + item_name + " here.")
 
@@ -69,6 +72,9 @@ class Player:
             if requested_item:
                 self.inventory.remove(requested_item)
                 self.current_room.add_item(requested_item)
+
+                # display drop message
+                requested_item.on_drop()
             else:
                 print("You don't have " + item_name + " in your inventory!")
 

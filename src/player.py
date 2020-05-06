@@ -51,16 +51,26 @@ class Player:
 
     def drop_item(self, item_name):
 
-        # check for existence of item in inventory
-        requested_item = self.get_item_by_name(item_name)
+        # shortcut for dropping everything in inventory
+        if item_name == "all":
 
-        # remove item from inventory if it exists
-        # then add it to the room
-        if requested_item:
-            self.inventory.remove(requested_item)
-            self.current_room.add_item(requested_item)
+            if len(self.inventory) > 0:
+                self.current_room.items.extend(self.inventory)
+                self.inventory = []
+            else:
+                print("You don't have anything left to drop.")
+        
         else:
-            print("You don't have " + item_name + " in your inventory!")
+            # check for existence of item in inventory
+            requested_item = self.get_item_by_name(item_name)
+
+            # remove item from inventory if it exists
+            # then add it to the room
+            if requested_item:
+                self.inventory.remove(requested_item)
+                self.current_room.add_item(requested_item)
+            else:
+                print("You don't have " + item_name + " in your inventory!")
 
     def show_inventory(self):
 

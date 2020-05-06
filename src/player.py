@@ -5,14 +5,15 @@ class Player:
 
     inventory = []
 
-    def __init__(self, starting_room):
-        self.room = starting_room
+    def __init__(self, starting_room, name):
+        self.current_room = starting_room
+        self.name = name
 
     def get_location(self):
-        return self.room
+        return self.current_room
 
     def move_to_location(self, next_room):
-        self.room = next_room
+        self.current_room = next_room
 
     def drop_item(self, item):
 

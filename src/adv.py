@@ -68,7 +68,7 @@ direction_adj_phrase = {
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Player(room['outside'])
+player = Player(room['outside'], "Adventurer #215")
 
 # Write a loop that:
 #

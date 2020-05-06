@@ -1,5 +1,4 @@
-# Implement a class to hold room information. This should have name and
-# description attributes.
+from item import LightSource
 
 class Room:
 
@@ -11,11 +10,12 @@ class Room:
     u_to = None
     d_to = None
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, is_light=False):
         self.name = name
         self.description = description
         self.items = []
-    
+        self.is_light = is_light
+
     def get_next_room(self, direction):
 
         if direction == "n":
@@ -63,8 +63,25 @@ class Room:
     def return_items_in_room(self):
         return self.items
 
-    def describe(self):
+    def describe(self, player_illumination_status):
+
         print(self.name)
-        print("  " + self.description)
-        self.print_items()        
+
+        # display description and items only if it is light enough to see them
+        if self.is_illuminated() or player_illumination_status:
+            
+            print("  " + self.description)
+            self.print_items()
+
+        else:
+            print("It's too dark to see anything here.")
+    
+    # determine if there is enough light to see in the room
+    def is_illuminated(self):
+
+        # check for a light source object
+        light_sources = [item for item in self.items if isinstance(item, LightSource)]
+
+        # return true if naturally lit or light source found
+        return self.is_light or len(light_sources) > 1
 

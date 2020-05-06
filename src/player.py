@@ -98,3 +98,10 @@ class Player:
             print(", ".join(item_names))
         else:
             print("You don't have a penny to your name.")
+    
+    def can_illuminate_room(self):
+        # check for a light source object
+        light_sources = [item for item in self.inventory if isinstance(item, LightSource)]
+
+        # return true if light source found
+        return len(light_sources) > 1

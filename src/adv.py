@@ -37,7 +37,8 @@ direction_adj_phrase = {
 # Make a new player object that is currently in the 'outside' room.
 
 player = Player(room['outside'], "Adventurer #215")
-player.get_location().describe()
+player_illumination_status = player.can_illuminate_room()
+player.get_location().describe(player_illumination_status)
 
 # Write a loop that:
 #
@@ -52,8 +53,9 @@ player.get_location().describe()
 
 while True:
 
-    # get player's current room and print its description
+    # get player's current room and visibility status
     current_room = player.get_location()
+    player_illumination_status = player.can_illuminate_room()
     
     # prompt for user input
     user_input = input("> ").lower()
@@ -71,7 +73,7 @@ while True:
             show_instructions()
 
         elif (user_input == 'l'):
-            current_room.describe()
+            current_room.describe(player_illumination_status)
 
         elif (user_input in ['i' , 'inventory']):
             player.show_inventory()
@@ -85,7 +87,7 @@ while True:
                 # move user to new room
                 player.move_to_location(next_room)
                 print("You move " + direction_abbreviations[user_input] + ".")
-                next_room.describe()
+                next_room.describe(player_illumination_status)
             else:
                 print("There is no exit " + direction_adj_phrase[user_input] + " from here.")
     

@@ -128,9 +128,9 @@ In arbitrary order:
 
 * Add a subclass to `Item` called `LightSource`.
 
-  * During world creation, add a `lamp` `LightSource` to a convenient `Room`.
+  * ✅ During world creation, add a `lamp` `LightSource` to a convenient `Room`.
 
-  * Override `on_drop` in `LightSource` that tells the player "It's not wise to
+  * ✅ Override `on_drop` in `LightSource` that tells the player "It's not wise to
   drop your source of light!" if the player drops it. (But still lets them drop
   it.)
 

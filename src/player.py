@@ -25,16 +25,29 @@ class Player:
 
     def get_item(self, item_name):
 
-        # check for existence of item in room
-        requested_item = self.current_room.get_item_by_name(item_name)
+        # shortcut for getting everything in the room
+        if item_name == "all":
 
-        # add item to inventory if it exists
-        # then remove item from the room
-        if requested_item:
-            self.inventory.append(requested_item)
-            self.current_room.remove_item(requested_item)
+            items_in_room = self.current_room.return_items_in_room()
+
+            if len(items_in_room) > 0:
+                self.inventory.extend(items_in_room)
+                self.current_room.items = []
+            else:
+                print("There is nothing left to take here.")
+        
+        # add an individual item
         else:
-            print("There is no " + item_name + " here.")
+            # check for existence of item in room
+            requested_item = self.current_room.get_item_by_name(item_name)
+
+            # add item to inventory if it exists
+            # then remove item from the room
+            if requested_item:
+                self.inventory.append(requested_item)
+                self.current_room.remove_item(requested_item)
+            else:
+                print("There is no " + item_name + " here.")
 
     def drop_item(self, item_name):
 

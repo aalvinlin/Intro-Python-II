@@ -12,7 +12,7 @@ class Room:
         "d": None
     }
 
-    __init__(name, description):
+    def __init__(self, name, description):
         self.name = name
         self.description = description
     
@@ -34,3 +34,6 @@ class Room:
     def d_to():
         return exits['d']
     
+    def describe():
+        print(self.name)
+        print(self.description)

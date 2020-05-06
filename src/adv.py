@@ -62,7 +62,7 @@ show_instructions()
 
 while True:
 
-    user_input = input("What do you want to do?").lower()
+    user_input = input("\nWhat do you want to do?\n").lower()
 
     if (user_input == 'q'):
         break

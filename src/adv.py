@@ -60,26 +60,44 @@ while True:
     # prompt for user input
     user_input = input("> ").lower()
 
-    if (user_input == 'q'):
-        break
+    # get all words separated by spaces
+    input_words = user_input.strip().split(" ")
 
-    elif (user_input == 'h'):
-        show_instructions()
+    # single-word actions
+    if len(input_words) == 1:
 
-    elif (user_input in ['i' , 'inventory']):
-        player.show_inventory()
+        if (user_input == 'q'):
+            break
 
-    elif (user_input in direction_abbreviations):
+        elif (user_input == 'h'):
+            show_instructions()
 
-        # check if current room has an exit in the requested direction
-        next_room = current_room.get_next_room(user_input)
+        elif (user_input in ['i' , 'inventory']):
+            player.show_inventory()
 
-        if next_room:
-            # move user to new room
-            player.move_to_location(next_room)
-            print("You move " + direction_abbreviations[user_input] + ".")
-        else:
-            print("There is no exit " + direction_adj_phrase[user_input] + " from here.")
+        elif (user_input in direction_abbreviations):
+
+            # check if current room has an exit in the requested direction
+            next_room = current_room.get_next_room(user_input)
+
+            if next_room:
+                # move user to new room
+                player.move_to_location(next_room)
+                print("You move " + direction_abbreviations[user_input] + ".")
+            else:
+                print("There is no exit " + direction_adj_phrase[user_input] + " from here.")
+    
+    # two-word actions
+    elif len(input_words) == 2:
+
+        verb = input_words[0]
+        direct_object = input_words[1]
+
+        if (verb in ['get', 'take']):
+            player.get_item(direct_object)
+        
+        elif (verb == 'drop'):
+            player.drop_item(direct_object)
 
     # print an extra line at the end to separate actions
     print("")

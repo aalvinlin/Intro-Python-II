@@ -41,8 +41,8 @@ class Room:
             print(", ".join(item_names))
 
     # return the Item object with the specified name if it exists
-    def get_item_by_name(self, name):
-        requested_item = [item for item in self.items if item.get_name() == name]
+    def get_item_by_name(self, item_name):
+        requested_item = [item for item in self.items if item.get_name() == item_name]
 
         if len(requested_item) == 1:
             return requested_item

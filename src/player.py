@@ -31,7 +31,7 @@ class Player:
         # add item to inventory if it exists
         # then remove item from the room
         if requested_item:
-            self.items.append(requested_item)
+            self.inventory.append(requested_item)
             self.current_room.remove_item(requested_item)
         else:
             print("There is no " + item_name + " here.")

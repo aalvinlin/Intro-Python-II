@@ -43,7 +43,7 @@ def show_instructions():
     print("To quit, type 'q'.")
     print("To pick up an item, type 'get (item name)' or 'take (item name)'.")
     print("To drop an item, type 'drop (item name).")
-    print("To view these instructions again, type 'i.")
+    print("To view these instructions again, type 'i'.")
 
 print("Welcome to Adventure Game #1")
 show_instructions()

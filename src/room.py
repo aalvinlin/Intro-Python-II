@@ -45,7 +45,7 @@ class Room:
         requested_item = [item for item in self.items if item.get_name() == item_name]
 
         if len(requested_item) == 1:
-            return requested_item
+            return requested_item[0]
         else:
             return None
 
@@ -55,9 +55,8 @@ class Room:
 
     # remove a requested Item object from the room
     def remove_item(self, item):
-
         # remove item if it exists
-        if self._item_exists(item):
+        if item:
             self.items.remove(item)
     
     # get a list of all Item objects in the room

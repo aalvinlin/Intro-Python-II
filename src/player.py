@@ -19,7 +19,7 @@ class Player:
         requested_item = [item for item in self.inventory if item.get_name() == name]
 
         if len(requested_item) == 1:
-            return requested_item
+            return requested_item[0]
         else:
             return None
 
@@ -44,7 +44,7 @@ class Player:
         # remove item from inventory if it exists
         # then add it to the room
         if requested_item:
-            self.inventory.remove(item)
+            self.inventory.remove(requested_item)
             self.current_room.add_item(requested_item)
         else:
             print("You don't have " + item_name + " in your inventory!")

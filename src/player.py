@@ -24,6 +24,11 @@ class Player:
 
     def get_item(self, item_name):
 
+        # prevent player from getting anything if it is too dark
+        if not self.current_room.is_illuminated():
+            print("It's too dark to try to get anything here.")
+            return
+
         # shortcut for getting everything in the room
         if item_name == "all":
 
@@ -69,6 +74,11 @@ class Player:
 
                 self.current_room.items.extend(self.inventory)
                 self.inventory = []
+
+                # if it is too dark to find the items again, say so
+                if not self.current_room.is_illuminated():
+                    print("You'll need a light source to find everything again.")
+
             else:
                 print("You don't have anything left to drop.")
         
@@ -84,6 +94,11 @@ class Player:
 
                 # display drop message
                 requested_item.on_drop()
+
+                # if it is too dark to find the item again, say so
+                if not self.current_room.is_illuminated():
+                    print("You'll need a light source to find it again.")
+
             else:
                 print("You don't have " + item_name + " in your inventory!")
 

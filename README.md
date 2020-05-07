@@ -126,7 +126,7 @@ In arbitrary order:
 
 * Subclass items into treasures
 
-* Add a subclass to `Item` called `LightSource`.
+* ✅ Add a subclass to `Item` called `LightSource`.
 
   * ✅ During world creation, add a `lamp` `LightSource` to a convenient `Room`.
 
@@ -134,23 +134,23 @@ In arbitrary order:
   drop your source of light!" if the player drops it. (But still lets them drop
   it.)
 
-  * Add an attribute to `Room` called `is_light` that is `True` if the `Room` is
+  * ✅ Add an attribute to `Room` called `is_light` that is `True` if the `Room` is
   naturally illuminated, or `False` if a `LightSource` is required to see what
   is in the room.
 
-  * Modify the main loop to test if there is light in the `Room` (i.e. if
+  * ✅ Modify the main loop to test if there is light in the `Room` (i.e. if
     `is_light` is `True` **or** there is a `LightSource` item in the `Room`'s
     contents **or** if there is a `LightSource` item in the `Player`'s contents).
 
-  * If there is light in the room, display name, description, and contents as
+  * ✅ If there is light in the room, display name, description, and contents as
     normal.
 
-  * If there isn't, print out "It's pitch black!" instead.
+  * ✅ If there isn't, print out "It's pitch black!" instead.
 
-  * Hint: `isinstance` might help you figure out if there's a `LightSource`
+  * ✅ Hint: `isinstance` might help you figure out if there's a `LightSource`
     among all the nearby `Item`s.
 
-  * Modify the `get`/`take` code to print "Good luck finding that in the dark!" if
+  * ✅ Modify the `get`/`take` code to print "Good luck finding that in the dark!" if
   the user tries to pick up an `Item` in the dark.
 
 * Add methods to notify items when they are picked up or dropped

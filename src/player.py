@@ -25,7 +25,7 @@ class Player:
     def get_item(self, item_name):
 
         # prevent player from getting anything if it is too dark
-        if not self.current_room.is_illuminated():
+        if not self.current_room.is_illuminated() and not self.can_illuminate_room():
             print("It's too dark to try to get anything here.")
             return
 
@@ -76,7 +76,7 @@ class Player:
                 self.inventory = []
 
                 # if it is too dark to find the items again, say so
-                if not self.current_room.is_illuminated():
+                if not self.current_room.is_illuminated() and not self.can_illuminate_room():
                     print("You'll need a light source to find everything again.")
 
             else:
@@ -96,7 +96,7 @@ class Player:
                 requested_item.on_drop()
 
                 # if it is too dark to find the item again, say so
-                if not self.current_room.is_illuminated():
+                if not self.current_room.is_illuminated() and not self.can_illuminate_room():
                     print("You'll need a light source to find it again.")
 
             else:
